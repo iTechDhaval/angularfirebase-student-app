@@ -59,4 +59,8 @@ export class StudentsListComponent implements OnInit {
     }
   }
 
+  addFakeStudent() {
+    this.crudApi.AddFakeStudent();
+  }
+
 }

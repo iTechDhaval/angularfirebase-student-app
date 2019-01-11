@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Student } from '../shared/student';  // Student data type interface class
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';  // Firebase modules for Database, Data list and Single object
+import * as faker from "faker";
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,18 @@ export class CrudService {
   DeleteStudent(id: string) { 
     this.studentRef = this.db.object('students-list/'+id);
     this.studentRef.remove();
+  }
+
+  AddFakeStudent() {
+    const student: Student = {
+      $key: faker.random.alphaNumeric(16),
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      mobileNumber: parseInt(faker.phone.phoneNumberFormat(),10)
+    }
+
+    this.AddStudent(student);
   }
   
 }
