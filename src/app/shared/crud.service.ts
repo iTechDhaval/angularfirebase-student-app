@@ -58,7 +58,7 @@ export class CrudService {
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
       email: faker.internet.email(),
-      mobileNumber: parseInt(faker.phone.phoneNumberFormat(),10)
+      mobileNumber: parseInt(faker.phone.phoneNumberFormat().replace(/[^0-9]/g, ''),10)
     }
 
     this.AddStudent(student);
