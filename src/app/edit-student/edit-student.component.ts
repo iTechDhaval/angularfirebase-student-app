@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CrudService } from '../shared/crud.service';
+import { StudentService } from '../shared/student.service';
 import { ActivatedRoute, Router } from "@angular/router"; // ActivatedRoue is used to get the current associated components information.
 import { Location } from '@angular/common';  // Location service is used to go back to previous component
 import { ToastrService } from 'ngx-toastr';
@@ -15,7 +15,7 @@ export class EditStudentComponent implements OnInit {
   editForm: FormGroup;  // Define FormGroup to student's edit form
   
   constructor(
-    private crudApi: CrudService,       // Inject CRUD API in constructor
+    private crudApi: StudentService,       // Inject CRUD API in constructor
     private fb: FormBuilder,            // Inject Form Builder service for Reactive forms
     private location: Location,         // Location service to go back to previous component
     private actRoute: ActivatedRoute,   // Activated route to get the current component's inforamation

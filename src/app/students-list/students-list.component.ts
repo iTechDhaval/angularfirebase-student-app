@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from '../shared/crud.service';  // CRUD API service class
+import { StudentService } from '../shared/student.service';  // CRUD API service class
 import { Student } from './../shared/student';   // Student interface class for Data types.
 import { ToastrService } from 'ngx-toastr';      // Alert message using NGX toastr
 
@@ -19,7 +19,7 @@ export class StudentsListComponent implements OnInit {
   
 
   constructor(
-    public crudApi: CrudService, // Inject student CRUD services in constructor.
+    public crudApi: StudentService, // Inject student CRUD services in constructor.
     public toastr: ToastrService // Toastr service for alert message
     ){ }
 
@@ -30,8 +30,8 @@ export class StudentsListComponent implements OnInit {
     s.snapshotChanges().subscribe(data => { // Using snapshotChanges() method to retrieve list of data along with metadata($key)
       this.Student = [];
       data.forEach(item => {
-        let a = item.payload.toJSON(); 
-        a['$key'] = item.key;
+        let a = item.payload.doc.data(); 
+        a['id'] = item.payload.doc.id;
         this.Student.push(a as Student);
       })
     })
@@ -52,9 +52,9 @@ export class StudentsListComponent implements OnInit {
   }
 
   // Method to delete student object
-  deleteStudent(student) {
+  deleteStudent(student: Student) {
     if (window.confirm('Are sure you want to delete this student ?')) { // Asking from user before Deleting student data.
-      this.crudApi.DeleteStudent(student.$key) // Using Delete student API to delete student.
+      this.crudApi.DeleteStudent(student.id) // Using Delete student API to delete student.
       this.toastr.success(student.firstName + ' successfully deleted!'); // Alert message will show up when student successfully deleted.
     }
   }

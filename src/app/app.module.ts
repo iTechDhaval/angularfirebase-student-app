@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // Firebase Modules
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 // Router Module
@@ -37,7 +37,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase), // Main Angular fire module 
-    AngularFireDatabaseModule,  // Firebase database module 
+    AngularFirestoreModule,     // Firebase firestore module
     ReactiveFormsModule,        // Reactive forms module
     AppRoutingModule,           // Main routing module
     BrowserAnimationsModule,    // Required animations module for Toastr

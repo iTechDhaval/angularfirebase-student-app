@@ -54,7 +54,7 @@ export class CrudService {
 
   AddFakeStudent() {
     const student: Student = {
-      $key: faker.random.alphaNumeric(16),
+      id: faker.random.alphaNumeric(20),
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
       email: faker.internet.email(),

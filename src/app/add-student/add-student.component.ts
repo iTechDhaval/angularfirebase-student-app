@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from '../shared/crud.service';    // CRUD services API
+import { StudentService } from '../shared/student.service';    // CRUD services API
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'; // Reactive form services
 import { ToastrService } from 'ngx-toastr'; // Alert message using NGX toastr
 
@@ -14,7 +14,7 @@ export class AddStudentComponent implements OnInit {
   public studentForm: FormGroup;  // Define FormGroup to student's form
  
   constructor(
-    public crudApi: CrudService,  // CRUD API services
+    public crudApi: StudentService,  // CRUD API services
     public fb: FormBuilder,       // Form Builder service for Reactive forms
     public toastr: ToastrService  // Toastr service for alert message
   ) { }
