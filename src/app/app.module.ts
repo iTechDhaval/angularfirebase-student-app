@@ -25,6 +25,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { AppComponent } from './app.component';
     AppComponent,
     AddStudentComponent,
     StudentsListComponent,
-    EditStudentComponent
+    EditStudentComponent,
+    AddProductComponent,
+    EditProductComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
